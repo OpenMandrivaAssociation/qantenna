@@ -38,9 +38,22 @@ antennas and their radiation patterns. It provides the user with a
 
 %install
 make INSTALL_ROOT=%{buildroot} install
+%if %{mdvver} >= 201200
 %find_lang %{name} --with-qt
+%endif
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc README AUTHORS ChangeLog COPYING
 %{_bindir}/qantenna
+%if %{mdvver} <= 201100
+%lang(da) /usr/share/qantenna/qantenna_da.qm
+%lang(de) /usr/share/qantenna/qantenna_de.qm
+%lang(es) /usr/share/qantenna/qantenna_es.qm
+%lang(fr) /usr/share/qantenna/qantenna_fr.qm
+%lang(it) /usr/share/qantenna/qantenna_it.qm
+%lang(nl) /usr/share/qantenna/qantenna_nl.qm
+%lang(pl) /usr/share/qantenna/qantenna_pl.qm
+%lang(ru) /usr/share/qantenna/qantenna_ru.qm
+%lang(sv) /usr/share/qantenna/qantenna_sv.qm
+%endif

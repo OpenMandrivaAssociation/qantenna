@@ -1,21 +1,23 @@
 %define name	qantenna
-%define version	0.2.2
+%define version	0.2.3
 %define rel	1
 
 Name:		%{name}
 Version:	%{version}
+%if %{mdvver} >= 201100
+Release:	%{rel}
+%else
 Release:	%mkrel %{rel}
-Summary:	QAntenna is softwareto viewing and analizing antennas
+%endif
+Summary:	Software dedicated to viewing and analyzing antennas
 Group:		Sciences/Physics 
 License:	GPLv2
 URL:		http://qantenna.sourceforge.net/
-Source:		http://sourceforge.net/projects/qantenna/files/qantenna/0.2.2/%{name}-%{version}.tar.gz
-BuildRequires:	gcc-c++
+Source0:	http://downloads.sourceforge.net/project/qantenna/qantenna/%{version}/%{name}-%{version}.tar.bz2
+Patch0:		qantenna-0.2.3-mdv-link.patch
 BuildRequires:	libgc-devel
-BuildRequires:	libstdc++-devel
 BuildRequires:	qt4-devel
 Requires:	nec2++
-Requires:	libmesagl
 Requires:	libatlas
 
 
@@ -26,34 +28,18 @@ antennas and their radiation patterns. It provides the user with a
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %qmake_qt4  PREFIX=/usr qantenna.pro
 
-%make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+%make RPM_OPT_FLAGS="%{optflags}"
 
-rm -rf %{buildroot}
-make INSTALL_ROOT=$RPM_BUILD_ROOT install
+%install
+make INSTALL_ROOT=%{buildroot} install
+%find_lang %{name} --with-qt
 
-
-
-
-%clean
-rm -rf %{buildroot}
-
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
-%doc README  AUTHORS ChangeLog COPYING INSTALL
+%doc README AUTHORS ChangeLog COPYING
 %{_bindir}/qantenna
-%{_datadir}/qantenna/qantenna_da.qm
-%{_datadir}/qantenna/qantenna_de.qm
-%{_datadir}/qantenna/qantenna_es.qm
-%{_datadir}/qantenna/qantenna_fr.qm
-%{_datadir}/qantenna/qantenna_it.qm
-%{_datadir}/qantenna/qantenna_nl.qm
-%{_datadir}/qantenna/qantenna_pl.qm
-%{_datadir}/qantenna/qantenna_ru.qm
-%{_datadir}/qantenna/qantenna_sv.qm
-
-
-

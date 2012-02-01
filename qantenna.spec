@@ -17,6 +17,7 @@ Source0:	http://downloads.sourceforge.net/project/qantenna/qantenna/%{version}/%
 Patch0:		qantenna-0.2.3-mdv-link.patch
 BuildRequires:	libgc-devel
 BuildRequires:	qt4-devel
+BuildRequires:	mesaglu-devel
 Requires:	nec2++
 Requires:	libatlas
 

@@ -42,11 +42,8 @@ make INSTALL_ROOT=%{buildroot} install
 %find_lang %{name} --with-qt
 %endif
 
-%files -f %{name}.lang
-%defattr(-,root,root)
-%doc README AUTHORS ChangeLog COPYING
-%{_bindir}/qantenna
 %if %{mdvver} <= 201100
+%files
 %lang(da) /usr/share/qantenna/qantenna_da.qm
 %lang(de) /usr/share/qantenna/qantenna_de.qm
 %lang(es) /usr/share/qantenna/qantenna_es.qm
@@ -56,4 +53,8 @@ make INSTALL_ROOT=%{buildroot} install
 %lang(pl) /usr/share/qantenna/qantenna_pl.qm
 %lang(ru) /usr/share/qantenna/qantenna_ru.qm
 %lang(sv) /usr/share/qantenna/qantenna_sv.qm
+%else
+%files -f %{name}.lang
 %endif
+%doc README AUTHORS ChangeLog COPYING
+%{_bindir}/qantenna

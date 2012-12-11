@@ -15,7 +15,7 @@ License:	GPLv2
 URL:		http://qantenna.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/qantenna/qantenna/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		qantenna-0.2.3-mdv-link.patch
-BuildRequires:	libgc-devel
+BuildRequires:	pkgconfig(bdw-gc)
 BuildRequires:	qt4-devel
 BuildRequires:	mesaglu-devel
 Requires:	nec2++
@@ -58,3 +58,18 @@ make INSTALL_ROOT=%{buildroot} install
 %endif
 %doc README AUTHORS ChangeLog COPYING
 %{_bindir}/qantenna
+
+
+%changelog
+* Wed Feb 01 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.2.3-1mdv2011.0
++ Revision: 770399
++ rebuild (emptylog)
+
+* Wed Feb 01 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.2.3-1
++ Revision: 770365
+- update to 0.2.3
+
+* Fri Dec 03 2010 Thomas Spuhler <tspuhler@mandriva.org> 0.2.2-1mdv2011.0
++ Revision: 605788
+- import qantenna
+

@@ -6,6 +6,7 @@ License:	GPLv2+
 Group:		Sciences/Physics
 Url:		http://qantenna.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/qantenna/qantenna/%{version}/%{name}-%{version}.orig.tar.xz
+BuildRequires:	qt5-linguist
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(bdw-gc)
 BuildRequires:	pkgconfig(gl)

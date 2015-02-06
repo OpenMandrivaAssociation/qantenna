@@ -1,7 +1,7 @@
 Summary:	Software dedicated to viewing and analyzing antennas
 Name:		qantenna
 Version:	0.3.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Sciences/Physics
 Url:		http://qantenna.sourceforge.net/

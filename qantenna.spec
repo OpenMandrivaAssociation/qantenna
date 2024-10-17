@@ -4,7 +4,7 @@ Version:	0.3.0
 Release:	2
 License:	GPLv2+
 Group:		Sciences/Physics
-Url:		http://qantenna.sourceforge.net/
+Url:		https://qantenna.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/qantenna/qantenna/%{version}/%{name}-%{version}.orig.tar.xz
 BuildRequires:	qt5-linguist
 BuildRequires:	qt5-devel
